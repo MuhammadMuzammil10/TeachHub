@@ -4,93 +4,61 @@
     <h1>New Job Offer</h1>
     <p class="pxp-text-light">Add a new job to your company's jobs list.</p>
 
-    <form>
+    <form method="POST" novalidate>
+        {% csrf_token %}
         <div class="row mt-4 mt-lg-5">
             <div class="col-xxl-6">
                 <div class="mb-3">
-                    <label for="pxp-company-job-title" class="form-label">Job title</label>
-                    <input type="text" id="pxp-company-job-title" class="form-control" placeholder="Add title">
+                    <label for="{{ form.title.id_for_label }}" class="form-label">Job title</label>
+                    {{ form.title }}
                 </div>
             </div>
             <div class="col-md-6 col-xxl-3">
-                <label for="pxp-company-job-location" class="form-label">Location</label>
-                <input type="text" id="pxp-company-job-location" class="form-control" placeholder="E.g. San Francisco, CA">
+                <label for="{{ form.subject.id_for_label }}" class="form-label">Subject</label>
+                {{form.subject}}
             </div>
             <div class="col-md-6 col-xxl-3">
                 <div class="mb-3">
-                    <label for="pxp-company-job-category" class="form-label">Category</label>
-                    <select id="pxp-company-job-category" class="form-select">
-                        <option>Select a category</option>
-                        <option>Marketing & Communication</option>
-                        <option>Software Engineering</option>
-                        <option>Project Management</option>
-                        <option>Finance</option>
-                        <option>Retail</option>
-                        <option>Sales</option>
-                        <option>Manufacturing</option>
-                        <option>IT</option>
-                        <option>Business Development</option>
-                        <option>Human Resources</option>
-                        <option>Customer Service</option>
-                    </select>
+                    <label for="{{ form.level.id_for_label }}" class="form-label">Level of Study</label>
+                    {{form.level}}
                 </div>
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="pxp-company-job-description" class="form-label">Job description</label>
-            <textarea class="form-control" id="pxp-company-job-description" placeholder="Type the description here..."></textarea>
+            <label for="{{ form.description.id_for_label }" class="form-label">Job description</label>
+            {{form.description}}
         </div>
 
         <div class="row">
             <div class="col-md-6 col-xxl-3">
                 <div class="mb-3">
-                    <label for="pxp-company-job-experience" class="form-label">Experience</label>
-                    <input type="text" id="pxp-company-job-experience" class="form-control" placeholder="E.g. Minimum 3 years">
+                    <label for="{{ form.experience.id_for_label }" class="form-label">Experience</label>
+                    {{form.experience}}
                 </div>
             </div>
             <div class="col-md-6 col-xxl-3">
                 <div class="mb-3">
-                    <label for="pxp-company-job-level" class="form-label">Career level</label>
-                    <select id="pxp-company-job-level" class="form-select">
-                        <option>No Experience</option>
-                        <option>Entry-Level</option>
-                        <option>Mid-Level</option>
-                        <option>Senior-Level</option>
-                        <option>Manager / Executive</option>
-                    </select>
+                    <label for="{{ form.gender.id_for_label }" class="form-label">Preferred Tutor’s Gender</label>
+                    {{form.gender}}
                 </div>
             </div>
             <div class="col-md-6 col-xxl-3">
                 <div class="mb-3">
-                    <label for="pxp-company-job-type" class="form-label">Employment type</label>
-                    <select id="pxp-company-job-type" class="form-select">
-                        <option>Full Time</option>
-                        <option>Part Time</option>
-                        <option>Remote</option>
-                        <option>Internship</option>
-                        <option>Contract</option>
-                        <option>Training</option>
-                    </select>
+                    <label for="{{form.lesson_time.id_for_label }}" class="form-label">Preferred Lesson Time</label>
+                    {{form.lesson_time}}
                 </div>
             </div>
             <div class="col-md-6 col-xxl-3">
                 <div class="mb-3">
-                    <label for="pxp-company-job-salary" class="form-label">Salary range</label>
-                    <select id="pxp-company-job-salary" class="form-select">
-                        <option>Select range</option>
-                        <option>$700 - $1000</option>
-                        <option>$1000 - $1200</option>
-                        <option>$1200 - $1400</option>
-                        <option>$1500 - $1800</option>
-                        <option>$2000 - $3000</option>
-                    </select>
+                    <label for="{{ form.budget.id_for_label }" class="form-label">Budget range</label>
+                    {{form.budget}}
                 </div>
             </div>
         </div>
 
         <div class="mt-4 mt-lg-5">
-            <button class="btn rounded-pill pxp-section-cta">Publish Job</button>
+            <button type="submit" class="btn rounded-pill pxp-section-cta">Publish Job</button>
             <button class="btn rounded-pill pxp-section-cta-o ms-3">Save Draft</button>
         </div>
     </form>

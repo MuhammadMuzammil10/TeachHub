@@ -4,7 +4,7 @@
 <h1>All Jobs</h1>
 {% for job in jobs %}
     <div class="{% if job.status == 'Rejected' %}rejected{% else %}approved{% endif %}">
-        {{ job.content }}
+        {{ job.description }}
         <span>{{ job.status }}</span>
     </div>
 {% endfor %}
