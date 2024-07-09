@@ -21,6 +21,6 @@ from filter_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('submit_job', views.submit_job, name="post-job"),
+    path('job/post/', views.submit_job, name="post-job"),
     
 ]

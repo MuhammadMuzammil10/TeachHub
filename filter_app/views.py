@@ -17,5 +17,5 @@ def submit_job(request):
         job = JobDescription(content=content, status=status)
         job.save()
         return redirect('home')
-    return render(request, 'filter_app/submit_job.html')
+    return render(request, 'filter_app/post_job.html')
 
