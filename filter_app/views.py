@@ -11,11 +11,8 @@ def home(request):
 
 def submit_job(request):
     if request.method == 'POST':
-        print("Request post")
         form = JobDescriptionForm(request.POST)
-        print(form, ' $$$$$$$$4 form')
         if form.is_valid():
-            print('form valid')
             job = form.save(commit=False)
             description = request.POST['description']
             is_flagged = scan_job_description(description)
@@ -28,5 +25,5 @@ def submit_job(request):
             print("form not valid")
     else:
         form = JobDescriptionForm()
-    return render(request, 'filter_app/post_job.html', {'form':form})
+    return render(request, 'filter_app/post_job.html', {'form':form, 'page_name' : 'new_job'})
 
