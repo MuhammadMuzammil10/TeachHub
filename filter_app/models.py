@@ -33,7 +33,7 @@ class JobDescription(models.Model):
     job_posted_at = models.DateTimeField( auto_now=True, auto_now_add=False)
     
     def __str__(self):
-        return self.title
+        return self.description
     
 
 class ProhibitedPattern(models.Model):
