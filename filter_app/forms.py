@@ -25,10 +25,8 @@ class JobDescriptionForm(forms.ModelForm):
         }   
         widgets = {
             'title' : forms.TextInput(attrs={'placeholder' : 'Add title', 'class':'form-control'}),
-            'subject' : forms.TextInput(attrs={'placeholder' : 'E.g. Python Programming', 'class':'form-control'}),
             'level' : forms.Select(attrs={'class':'form-control', 'placeholder' : 'Select a level of Study'}),
             'description' : forms.Textarea(attrs={'class':'form-control', 'placeholder' : 'Type the description here...'}),
             'budget' : forms.Select(attrs={'class':'form-control', 'placeholder' : 'Select range'}),
             'experience' : forms.TextInput(attrs={'class':'form-control', 'placeholder' : 'E.g. Minimum 3 years'}),
-            'lesson_time' : forms.TextInput(attrs={'class':'form-control'}),
         }

@@ -17,8 +17,8 @@ def submit_job(request):
             description = request.POST['description']
             is_flagged = scan_job_description(description)
             status = 'Rejected' if is_flagged else 'Approved'
-            job.description=description
-            job.status=status
+            job.description = description
+            job.status = status
             job.save()
             return redirect('home')
         else:

@@ -23,14 +23,12 @@ BUDGET_RANGE = (
 
 class JobDescription(models.Model):
     title = models.CharField(max_length=150,null=True, blank=True)
-    subject = models.CharField(max_length=150,null=True, blank=True)
     level = models.CharField(choices=LEVEL_OF_STUDY, max_length=50,null=True, blank=True)
     gender_preference = models.CharField( max_length=50,null=True, blank=True)
     qualification = models.CharField( max_length=100,null=True, blank=True)
     budget = models.CharField(choices=BUDGET_RANGE, max_length=100,null=True, blank=True)
     description = models.TextField()
     experience = models.CharField(max_length=50,null=True, blank=True)
-    lesson_time = models.CharField(max_length=150, null=True, blank=True)
     status = models.CharField(max_length=10, default='Pending')
     job_posted_at = models.DateTimeField( auto_now=True, auto_now_add=False)
 
