@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import JobDescription
 from .filter_logic import scan_job_description
 from filter_app.forms import *
@@ -6,7 +6,7 @@ from filter_app.forms import *
 
 def home(request):
     jobs = JobDescription.objects.all()
-    return render(request, 'filter_app/home.html', {'jobs': jobs})
+    return render(request, 'filter_app/my_jobs.html', {'jobs': jobs})
 
 
 def submit_job(request):
@@ -22,7 +22,7 @@ def submit_job(request):
             job.save()
             return redirect('home')
         else:
-            print("form not valid")
+            HttpResponse("Form is not Valid! ")
     else:
         form = JobDescriptionForm()
     return render(request, 'filter_app/post_job.html', {'form':form, 'page_name' : 'new_job'})

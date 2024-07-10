@@ -1,0 +1,62 @@
+{% extends "layouts/a.html" %}
+
+{% block content %}
+
+<div class="pxp-dashboard-content-details">
+    <h1>Manage Jobs</h1>
+    <p class="pxp-text-light">Detailed list with all your job offers.</p>
+
+    <div class="mt-4 mt-lg-5">
+        <div class="row justify-content-between align-content-center">
+            <div class="col-auto order-2 order-sm-1">
+                <div class="pxp-company-dashboard-jobs-bulk-actions mb-3">
+                    <select class="form-select">
+                        <option>Bulk actions</option>
+                        <option>Edit</option>
+                        <option>Delete</option>
+                    </select>
+                    <button class="btn ms-2">Apply</button>
+                </div>
+            </div>
+            <div class="col-auto order-1 order-sm-2">
+                <div class="pxp-company-dashboard-jobs-search mb-3">
+                    <div class="pxp-company-dashboard-jobs-search-results me-3">{{jobs.count}} jobs</div>
+                    <div class="pxp-company-dashboard-jobs-search-search-form">
+                        <div class="input-group">
+                            <span class="input-group-text"><span class="fa fa-search"></span></span>
+                            <input type="text" class="form-control" placeholder="Search jobs...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th style="width: 60%;">Job Description</th>
+                        <th style="width: 20%;">Status</th>
+                        <th style="width: 20%;">Date<span class="fa fa-angle-up ms-3"></span></th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in jobs %}
+                    <tr>
+                        <td><div class="pxp-company-dashboard-subscriptions-plan">{{job.description}}</div></td>
+                        <td><div class="pxp-company-dashboard-subscriptions-status"><span class="badge rounded-pill {% if job.status == 'Rejected' %} bg-danger {% else %} bg-success {% endif %}">{{job.status}}</span></div></td>
+                        <td><div class="pxp-company-dashboard-job-date">{{ job.job_posted_at }}</div></td>
+                        <td><div class="pxp-company-dashboard-job-options">&nbsp;</div></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="pxp-footer-copyright pxp-text-light">© 2021 Jobster. All Right Reserved.</div>
+</footer>
+
+{% endblock content %}

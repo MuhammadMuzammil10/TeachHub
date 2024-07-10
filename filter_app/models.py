@@ -31,7 +31,16 @@ class JobDescription(models.Model):
     experience = models.CharField(max_length=50,null=True, blank=True)
     status = models.CharField(max_length=10, default='Pending')
     job_posted_at = models.DateTimeField( auto_now=True, auto_now_add=False)
+    
+    def __str__(self):
+        return self.title
+    
 
 class ProhibitedPattern(models.Model):
     pattern = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+
+
+    def __str__(self):
+        return f' {self.description} : {self.pattern}'
+    
