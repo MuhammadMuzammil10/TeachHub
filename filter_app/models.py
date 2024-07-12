@@ -35,6 +35,9 @@ class JobDescription(models.Model):
     def __str__(self):
         return self.description
     
+    class Meta:
+        ordering = ['-job_posted_at']
+    
 
 class ProhibitedPattern(models.Model):
     pattern = models.CharField(max_length=200)
